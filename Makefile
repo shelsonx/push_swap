@@ -2,9 +2,9 @@ SRCS_FILES			= 	input.c
 
 SRCS_FILES_BONUS	= 	# need to implement
 
-SRCS_DIR			= sources
+SRCS_DIR			= src
 
-SRCS_DIR_BONUS		= sources_bonus
+SRCS_DIR_BONUS		= src_bonus
 
 SRCS				= $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
