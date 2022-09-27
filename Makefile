@@ -1,4 +1,4 @@
-SRCS_FILES			= 	linked_list_funcs.c main.c
+SRCS_FILES			= 	linked_list_funcs.c init.c main.c
 
 SRCS_FILES_BONUS	= 	# need to implement
 
