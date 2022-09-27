@@ -1,4 +1,5 @@
-SRCS_FILES			= 	linked_list_funcs.c init.c swap_operations.c push_operations.c rotate_up_operations.c test_rotate_up.c
+SRCS_FILES			= 	linked_list_funcs.c init.c swap_operations.c push_operations.c  \
+						rotate_up_operations.c
 
 SRCS_FILES_BONUS	= 	# need to implement
 
@@ -7,6 +8,7 @@ SRCS_DIR			= src
 SRCS_DIR_BONUS		= src_bonus
 
 SRCS				= $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
+SRCS				+= tests/test_rotate_up.c
 
 SRCS_BONUS			= $(addprefix $(SRCS_DIR_BONUS)/, $(SRCS_FILES_BONUS))
 

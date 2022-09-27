@@ -6,11 +6,11 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:25:30 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 01:40:01 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/09/28 01:46:06 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../src/push_swap.h"
 
 int main(int argc, char **argv)
 {
