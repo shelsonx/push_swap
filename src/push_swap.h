@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/27 17:11:37 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/09/27 18:09:20 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,10 @@ t_node	*ft_new(int value);
 
 //init data
 void	init(int argc, char **argv, t_data *data);
+
+//swap operations
+void	swap_sa(t_data *data);
+void	swap_sb(t_data *data);
+void	swap_ss(t_data* data);
 
 #endif
