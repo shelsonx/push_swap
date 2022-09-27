@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.c                                            :+:      :+:    :+:   */
+/*   linked_list_funcs.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:17 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/24 22:07:13 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/09/27 03:29:16 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,34 @@ void	ft_add_back(t_node **lst, t_node *new)
 	last->next = new;
 }
 
+void	ft_add_front(t_node **lst, t_node *new)
+{
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	new->next = *lst;
+	*lst = new;
+}
+
+int	ft_size(t_node *lst)
+{
+	int		count;
+	t_node	*tmp;
+
+	if (!lst)
+		return (0);
+	count = 0;
+	tmp = lst;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		count++;
+	}
+	return (count);
+}
+
 void	ft_free_nodes(t_node **lst)
 {
 	t_node	*next;
@@ -50,33 +78,14 @@ void	ft_free_nodes(t_node **lst)
 	*lst = NULL;
 }
 
-void	init_stack_a(t_node **list, int value)
+t_node	*ft_new(int value)
 {
 	t_node	*node;
 
-	node = malloc(sizeof(t_node));
+	node = (t_node *) malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
 	node->value = value;
 	node->next = NULL;
-	ft_add_back(list, node);
-}
-
-int main(int argc, char **argv)
-{
-	t_node *list;
-	t_node *current;
-
-	int	i;
-
-	list = NULL;
-	i = 0;
-	while (++i < argc)
-		init_stack_a(&list, ft_atoi(argv[i]));
-
-	current = list;
-	while (current)
-	{
-		ft_printf("%d \n", current->value);
-		current = current->next;
-	}
-	ft_free_nodes(&list);
+	return (node);
 }

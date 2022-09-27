@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/27 03:27:58 by sjhony-x         ###   ########.fr       */
+/*   Created: 2022/09/27 03:25:30 by sjhony-x          #+#    #+#             */
+/*   Updated: 2022/09/27 03:25:42 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libs/libft/libft.h"
-typedef struct s_node
+#include "push_swap.h"
+
+int main(int argc, char **argv)
 {
-	int				value;
-	struct s_node	*next;
-}	t_node;
+	t_node *list;
+	t_node *current;
 
+	int	i;
 
-//Functions to operations node
-t_node	*ft_last(t_node *lst);
-void	ft_add_back(t_node **lst, t_node *new);
-void	ft_add_front(t_node **lst, t_node *new);
-int		ft_size(t_node *lst);
-void	ft_free_nodes(t_node **lst);
-t_node	*ft_new(int value);
-
-#endif
+	list = NULL;
+	i = 0;
+	while (++i < argc)
+		ft_add_back(&list, ft_new(ft_atoi(argv[i])));
+	current = list;
+	while (current)
+	{
+		ft_printf("%d \n", current->value);
+		current = current->next;
+	}
+	ft_free_nodes(&list);
+}
