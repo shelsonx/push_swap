@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/27 05:46:53 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:11:37 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	struct s_node	*head;
+	struct s_node	*list;
 	int				size;
 }	t_stack;
 
