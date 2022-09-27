@@ -1,4 +1,4 @@
-SRCS_FILES			= 	linked_list_funcs.c init.c swap_operations.c push_operations.c test_push.c
+SRCS_FILES			= 	linked_list_funcs.c init.c swap_operations.c push_operations.c rotate_up_operations.c test_rotate_up.c
 
 SRCS_FILES_BONUS	= 	# need to implement
 
