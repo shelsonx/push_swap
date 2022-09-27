@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/27 23:34:27 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/09/28 01:34:14 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ void	push_a(t_data *data);
 
 //rotate
 void	rotate_a(t_stack  *stack_a);
+void	rotate_b(t_stack  *stack_b);
+void	rotate_all(t_stack *stack_a, t_stack *stack_b);
 
 #endif
