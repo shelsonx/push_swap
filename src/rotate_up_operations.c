@@ -6,24 +6,39 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:52 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 01:17:29 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/09/28 01:25:35 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_stack  *stack_a)
+static void	rotate(t_stack  *stack)
 {
 	int		head_value;
 	t_node	*tmp;
 
-	if (stack_a == NULL)
+	if (stack == NULL)
 		return ;
-	head_value = stack_a->list->value;
-	tmp = stack_a->list; 
-	stack_a->list = stack_a->list->next;
+	head_value = stack->list->value;
+	tmp = stack->list; 
+	stack->list = stack->list->next;
 	free(tmp);
-	ft_add_back(&stack_a->list, 
+	ft_add_back(&stack->list, 
 		ft_new(head_value));
 }
 
+void	rotate_a(t_stack  *stack_a)
+{
+	rotate(stack_a);
+}
+
+void	rotate_b(t_stack  *stack_b)
+{
+	rotate(stack_b);
+}
+
+void	rotate_all(t_stack *stack_a, t_stack *stack_b)
+{
+	rotate_a(stack_a);
+	rotate_b(stack_b);
+}
