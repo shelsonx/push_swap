@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:25:30 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 02:51:19 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/09/28 03:05:44 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 	} */
 	
 	//rotate_a(data.stack_a);
-	reverse_rotate(data.stack_a);
+	reverse_rotate_a(data.stack_a);
 	current = data.stack_a->list;
 	while (current)
 	{
