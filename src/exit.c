@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_operations.c                                  :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 03:34:27 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 17:17:19 by sjhony-x         ###   ########.fr       */
+/*   Created: 2022/09/28 17:09:57 by sjhony-x          #+#    #+#             */
+/*   Updated: 2022/09/28 17:15:42 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static	void	swap(t_node *list)
+void	ft_free_nodes(t_node **lst)
 {
-	int	tmp;
+	t_node	*next;
 
-	tmp = list->value;
-	list->value = list->next->value;
-	list->next->value = tmp;
-}
-
-void	swap_sa(t_data *data)
-{
-	if (data->stack_a == NULL)
+	if (!lst)
 		return ;
-	swap(data->stack_a->list);
+	next = *lst;
+	while (next)
+	{
+		next = next->next;
+		free(*lst);
+		*lst = next;
+	}
+	*lst = NULL;
 }
 
-void	swap_sb(t_data *data)
+void	free_stacks(t_data *data)
 {
-	if (data->stack_b == NULL)
-		return ;
-	swap(data->stack_b->list);
-}
-
-void	swap_ss(t_data *data)
-{
-	swap_sa(data);
-	swap_sb(data);
+	ft_free_nodes(&data->stack_a->list);
+	free(data->stack_a);
+	if (data->stack_b != NULL)
+	{
+		ft_free_nodes(&data->stack_b->list);
+		free(data->stack_b);
+	}
 }

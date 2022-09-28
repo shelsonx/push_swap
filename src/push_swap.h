@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 03:05:24 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:21:41 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,22 @@ void	init_stack_b(t_data *data);
 //swap operations
 void	swap_sa(t_data *data);
 void	swap_sb(t_data *data);
-void	swap_ss(t_data* data);
+void	swap_ss(t_data *data);
 
 //push
 void	push_b(t_data *data);
 void	push_a(t_data *data);
 
 //rotate
-void	rotate_a(t_stack  *stack_a);
-void	rotate_b(t_stack  *stack_b);
+void	rotate_a(t_stack *stack_a);
+void	rotate_b(t_stack *stack_b);
 void	rotate_all(t_stack *stack_a, t_stack *stack_b);
 
-void	reverse_rotate_a(t_stack  *stack_a);
-void	reverse_rotate_b(t_stack  *stack_b);
+void	reverse_rotate_a(t_stack *stack_a);
+void	reverse_rotate_b(t_stack *stack_b);
 void	reverse_rotate_all(t_stack *stack_a, t_stack *stack_b);
+
+//exit
+void	free_stacks(t_data *data);
 
 #endif

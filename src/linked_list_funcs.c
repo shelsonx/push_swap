@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:17 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/27 03:32:37 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:15:14 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,22 +60,6 @@ int	ft_size(t_node *lst)
 		count++;
 	}
 	return (count);
-}
-
-void	ft_free_nodes(t_node **lst)
-{
-	t_node	*next;
-
-	if (!lst)
-		return ;
-	next = *lst;
-	while (next)
-	{
-		next = next->next;
-		free(*lst);
-		*lst = next;
-	}
-	*lst = NULL;
 }
 
 t_node	*ft_new(int value)
