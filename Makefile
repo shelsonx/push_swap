@@ -22,7 +22,7 @@ LIBFT				= ./libs/libft/libft.a
 
 RM 					= rm -f
 
-CC					= cc
+CC					= clang
 
 CFLAGS 				= -Wall -Wextra -Werror -g
 

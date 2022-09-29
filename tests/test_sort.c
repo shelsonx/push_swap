@@ -12,6 +12,28 @@
 
 #include "../src/push_swap.h"
 
+void	sort_three_elements(t_data *data)
+{
+	t_node	*nd;
+	nd = data->stack_a->list;
+	if (nd->value > nd->next->value && nd->next->value < nd->next->next->value && nd->next->next->value > nd->value)
+		swap_sa(data);
+	else if (nd->value > nd->next->value && nd->next->value > nd->next->next->value)
+	{
+		swap_sa(data);
+		reverse_rotate_a(data->stack_a);
+	}
+	else if (nd->value > nd->next->value && nd->next->value < nd->next->next->value && nd->next->next->value < nd->value)
+		rotate_a(data->stack_a);
+	else if (nd->value < nd->next->value && nd->next->value > nd->next->next->value && nd->next->next->value > nd->value)
+	{
+		swap_sa(data);
+		rotate_a(data->stack_a);
+	}
+	else if(nd->value < nd->next->value && nd->next->value > nd->next->next->value && nd->next->next->value < nd->value)
+		reverse_rotate_a(data->stack_a);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data data;
@@ -19,6 +41,31 @@ int	main(int argc, char **argv)
 	t_node *current_2;
 	
 	init(argc, argv, &data);
+
+
+	
+	/* 3 numeros aleatorios
+		-> 2 1 3
+		sa
+
+		-> 2 3 1
+		sa
+		rra
+
+		-> 3 1 2
+		ra
+
+		-> 1 3 2
+		sa
+		ra
+
+		-> 2 3 1
+		rra
+	*/
+	ft_printf("****************************************\n");
+	sort_three_elements(&data);
+	ft_printf("****************************************\n");
+	/* //42 4 21 1 0 34 13
 	rotate_a(data.stack_a);
 	push_b(&data);
 	swap_sa(&data);
@@ -36,7 +83,7 @@ int	main(int argc, char **argv)
 	reverse_rotate_b(data.stack_b);
 	push_a(&data);
 	push_a(&data);
-	push_a(&data);
+	push_a(&data); */
 
 	/* //3 2 1 5 3
 	reverse_rotate_a(data.stack_a);
@@ -51,7 +98,7 @@ int	main(int argc, char **argv)
 	push_a(&data);
 	push_a(&data); */
 
-	ft_printf("STACK A SIZE=%d\n", ft_size(data.stack_a->list));
+	ft_printf("STACK A SIZE=%d\nsorted-> ", ft_size(data.stack_a->list));
 	current = data.stack_a->list;
 	while (current != NULL)
 	{
