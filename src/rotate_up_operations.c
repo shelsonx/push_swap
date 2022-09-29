@@ -17,8 +17,6 @@ static void	rotate(t_stack *stack)
 	int		head_value;
 	t_node	*tmp;
 
-	if (stack == NULL)
-		return ;
 	head_value = stack->list->value;
 	tmp = stack->list;
 	stack->list = stack->list->next;
@@ -29,16 +27,26 @@ static void	rotate(t_stack *stack)
 
 void	rotate_a(t_stack *stack_a)
 {
+	if (stack_a == NULL)
+		return ;
 	rotate(stack_a);
+	ft_printf("ra\n");
 }
 
 void	rotate_b(t_stack *stack_b)
 {
+	if (stack_b == NULL)
+		return ;
 	rotate(stack_b);
+	ft_printf("rb\n");
 }
 
 void	rotate_all(t_stack *stack_a, t_stack *stack_b)
 {
-	rotate_a(stack_a);
-	rotate_b(stack_b);
+	if (stack_a != NULL)
+		rotate(stack_a);
+	if (stack_b != NULL)
+		rotate(stack_b);
+	if (stack_a != NULL || stack_b != NULL)
+		ft_printf("rr\n");
 }
