@@ -12,38 +12,16 @@
 
 #include "../src/push_swap.h"
 
-void	sort_three_elements(t_data *data)
-{
-	t_node	*nd;
-	nd = data->stack_a->list;
-	if (nd->value > nd->next->value && nd->next->value < nd->next->next->value && nd->next->next->value > nd->value)
-		swap_sa(data);
-	else if (nd->value > nd->next->value && nd->next->value > nd->next->next->value)
-	{
-		swap_sa(data);
-		reverse_rotate_a(data->stack_a);
-	}
-	else if (nd->value > nd->next->value && nd->next->value < nd->next->next->value && nd->next->next->value < nd->value)
-		rotate_a(data->stack_a);
-	else if (nd->value < nd->next->value && nd->next->value > nd->next->next->value && nd->next->next->value > nd->value)
-	{
-		swap_sa(data);
-		rotate_a(data->stack_a);
-	}
-	else if(nd->value < nd->next->value && nd->next->value > nd->next->next->value && nd->next->next->value < nd->value)
-		reverse_rotate_a(data->stack_a);
-}
-
 int	main(int argc, char **argv)
 {
 	t_data data;
 	t_node *current;
 	t_node *current_2;
+	int size;
+
 	
 	init(argc, argv, &data);
-
-
-	
+	size = ft_size(data.stack_a->list);
 	/* 3 numeros aleatorios
 		-> 2 1 3
 		sa
@@ -63,7 +41,14 @@ int	main(int argc, char **argv)
 		rra
 	*/
 	ft_printf("****************************************\n");
-	sort_three_elements(&data);
+	if (size == 5)
+		sort_five(&data);
+	else if (size == 4)
+		sort_four(&data);
+	else if (size == 3)
+		sort_three(&data);
+	else if (size == 2)
+		sort_two(&data);
 	ft_printf("****************************************\n");
 	/* //42 4 21 1 0 34 13
 	rotate_a(data.stack_a);
