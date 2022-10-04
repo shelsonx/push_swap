@@ -67,4 +67,13 @@ void	reverse_rotate_all(t_stack *stack_a, t_stack *stack_b);
 //exit
 void	free_stacks(t_data *data);
 
+//utils
+int find_smallest_index(t_node *list);
+
+//sort small
+void	sort_two(t_data *data);
+void	sort_three(t_data *data);
+void	sort_four(t_data *data);
+void	sort_five(t_data *data);
+
 #endif

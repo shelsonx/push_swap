@@ -26,6 +26,7 @@ void	swap_sa(t_data *data)
 	if (data->stack_a == NULL)
 		return ;
 	swap(data->stack_a->list);
+	ft_printf("sa\n");
 }
 
 void	swap_sb(t_data *data)
@@ -33,10 +34,15 @@ void	swap_sb(t_data *data)
 	if (data->stack_b == NULL)
 		return ;
 	swap(data->stack_b->list);
+	ft_printf("sb\n");
 }
 
 void	swap_ss(t_data *data)
 {
-	swap_sa(data);
-	swap_sb(data);
+	if (data->stack_a != NULL)
+		swap(data->stack_a->list);
+	if (data->stack_b != NULL)
+		swap(data->stack_b->list);
+	if (data->stack_a != NULL || data->stack_a != NULL) 
+		ft_printf("ss\n");
 }

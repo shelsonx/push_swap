@@ -30,6 +30,7 @@ void	push_b(t_data *data)
 	if (data->stack_b == NULL)
 		init_stack_b(data);
 	push(data->stack_a, data->stack_b);
+	ft_printf("pb\n");
 }
 
 void	push_a(t_data *data)
@@ -37,4 +38,5 @@ void	push_a(t_data *data)
 	if (data->stack_b->list == NULL)
 		return ;
 	push(data->stack_b, data->stack_a);
+	ft_printf("pa\n");
 }

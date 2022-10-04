@@ -18,8 +18,6 @@ static void	reverse_rotate(t_stack *stack)
 	t_node	*tail;
 	int		size;
 
-	if (stack == NULL)
-		return ;
 	size = ft_size(stack->list);
 	current = stack->list;
 	while (--size > 1)
@@ -33,16 +31,26 @@ static void	reverse_rotate(t_stack *stack)
 
 void	reverse_rotate_a(t_stack *stack_a)
 {
+	if (stack_a == NULL)
+		return ;
 	reverse_rotate(stack_a);
+	ft_printf("rra\n");
 }
 
 void	reverse_rotate_b(t_stack *stack_b)
 {
+	if (stack_b == NULL)
+		return ;
 	reverse_rotate(stack_b);
+	ft_printf("rrb\n");
 }
 
 void	reverse_rotate_all(t_stack *stack_a, t_stack *stack_b)
 {
-	reverse_rotate_a(stack_a);
-	reverse_rotate_b(stack_b);
+	if (stack_a != NULL)
+		reverse_rotate(stack_a);
+	if (stack_a != NULL)
+		reverse_rotate(stack_b);
+	if (stack_a != NULL || stack_b != NULL)
+		ft_printf("rrr\n");
 }
