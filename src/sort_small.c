@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_sort.c                                        :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:28:34 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 17:14:15 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/04 23:53:09 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sort_three(t_data *data)
 	if (list->value > list->next->value && list->next->value
 		< list->next->next->value && list->next->next->value > list->value)
 		swap_sa(data);
-	else if (list->value > list->next->value 
+	else if (list->value > list->next->value
 		&& list->next->value > list->next->next->value)
 	{
 		swap_sa(data);
@@ -44,7 +44,7 @@ void	sort_three(t_data *data)
 		swap_sa(data);
 		rotate_a(data->stack_a);
 	}
-	else if(list->value < list->next->value && list->next->value
+	else if (list->value < list->next->value && list->next->value
 		> list->next->next->value && list->next->next->value < list->value)
 		reverse_rotate_a(data->stack_a);
 }
