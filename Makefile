@@ -1,6 +1,6 @@
 SRCS_FILES			= 	linked_list_funcs.c init.c swap_operations.c push_operations.c  \
 						rotate_up_operations.c reverse_rotate_operations.c exit.c push_swap_utils.c \
-						sort_small.c
+						sort_small.c validate.c
 
 SRCS_FILES_BONUS	= 	# need to implement
 

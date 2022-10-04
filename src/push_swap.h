@@ -6,13 +6,16 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 17:21:41 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/05 01:00:12 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libs/libft/libft.h"
+
+# define TRUE 1
+# define FALSE 0
 
 typedef struct s_node
 {
@@ -75,5 +78,8 @@ void	sort_two(t_data *data);
 void	sort_three(t_data *data);
 void	sort_four(t_data *data);
 void	sort_five(t_data *data);
+
+//validate
+int	is_sorted(t_node *list);
 
 #endif
