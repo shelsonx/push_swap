@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/05 06:01:06 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:05:22 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct s_data
 
 //Functions to operations node
 t_node	*ft_last(t_node *lst);
-void	ft_add_back(t_node **lst, t_node *new);
-void	ft_add_front(t_node **lst, t_node *new);
+void	ft_add_back(t_node **lst, t_node *new_node);
+void	ft_add_front(t_node **lst, t_node *new_node);
 int		ft_size(t_node *lst);
 void	ft_free_nodes(t_node **lst);
 t_node	*ft_new(int value);
@@ -72,6 +72,7 @@ void	free_stacks(t_data *data);
 
 //utils
 int		find_smallest_index(t_node *list);
+int		find_index(t_node *list, int value);
 
 //sort small
 void	sort_two(t_data *data);

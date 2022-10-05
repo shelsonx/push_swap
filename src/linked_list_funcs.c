@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:17 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 17:15:14 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:02:11 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,28 @@ t_node	*ft_last(t_node *lst)
 	return (lst);
 }
 
-void	ft_add_back(t_node **lst, t_node *new)
+void	ft_add_back(t_node **lst, t_node *new_node)
 {
 	t_node	*last;
 
 	if (!*lst)
 	{
-		*lst = new;
+		*lst = new_node;
 		return ;
 	}
 	last = ft_last(*lst);
-	last->next = new;
+	last->next = new_node;
 }
 
-void	ft_add_front(t_node **lst, t_node *new)
+void	ft_add_front(t_node **lst, t_node *new_node)
 {
 	if (!*lst)
 	{
-		*lst = new;
+		*lst = new_node;
 		return ;
 	}
-	new->next = *lst;
-	*lst = new;
+	new_node->next = *lst;
+	*lst = new_node;
 }
 
 int	ft_size(t_node *lst)

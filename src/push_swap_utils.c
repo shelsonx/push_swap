@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 23:43:03 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/04 23:48:21 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:02:53 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,21 @@ int	find_smallest_index(t_node *list)
 		index++;
 	}
 	return (smallest_index);
+}
+
+int	find_index(t_node *list, int value)
+{
+	t_node	*current;
+	int		index;
+
+	current = list;
+	index = 0;
+	while (current)
+	{
+		if (current->value == value)
+			return index;
+		current = current->next;
+		index++;
+	}
+	return (-1);
 }
