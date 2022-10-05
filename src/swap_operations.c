@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:34:27 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 17:17:19 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/05 05:59:53 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void	swap_ss(t_data *data)
 		swap(data->stack_a->list);
 	if (data->stack_b != NULL)
 		swap(data->stack_b->list);
-	if (data->stack_a != NULL || data->stack_a != NULL) 
+	if (data->stack_a != NULL || data->stack_a != NULL)
 		ft_printf("ss\n");
 }

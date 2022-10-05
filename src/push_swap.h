@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/05 01:00:12 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/05 06:01:06 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	reverse_rotate_all(t_stack *stack_a, t_stack *stack_b);
 void	free_stacks(t_data *data);
 
 //utils
-int find_smallest_index(t_node *list);
+int		find_smallest_index(t_node *list);
 
 //sort small
 void	sort_two(t_data *data);
@@ -80,6 +80,6 @@ void	sort_four(t_data *data);
 void	sort_five(t_data *data);
 
 //validate
-int	is_sorted(t_node *list);
+int		is_sorted(t_node *list);
 
 #endif
