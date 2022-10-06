@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/05 17:05:22 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/06 07:55:03 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	free_stacks(t_data *data);
 //utils
 int		find_smallest_index(t_node *list);
 int		find_index(t_node *list, int value);
+void	fill_array(t_node *list, int *arr, int size);
 
 //sort small
 void	sort_two(t_data *data);
@@ -82,5 +83,9 @@ void	sort_five(t_data *data);
 
 //validate
 int		is_sorted(t_node *list);
+int		contains_duplicate(int *arr, int size);
+
+//quick sort
+void	quick_sort(int *arr, int low, int high);
 
 #endif

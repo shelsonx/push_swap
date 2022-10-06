@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 23:43:03 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/05 17:02:53 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/06 07:50:04 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,24 @@ int	find_index(t_node *list, int value)
 	while (current)
 	{
 		if (current->value == value)
-			return index;
+			return (index);
 		current = current->next;
 		index++;
 	}
 	return (-1);
+}
+
+void	fill_array(t_node *list, int *arr, int size)
+{
+	t_node	*current;
+	int		i;
+
+	current = list;
+	i = 0;
+	while (i < size)
+	{
+		arr[i] = current->value;
+		i++;
+		current = current->next;
+	}
 }

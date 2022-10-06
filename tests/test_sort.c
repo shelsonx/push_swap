@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:28:34 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/05 17:09:24 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/06 07:55:14 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,35 @@ int	main(int argc, char **argv)
 	//t_node *current;
 	//t_node *current_2;
 	int size;
+	int	*arr;
+	int	i;
 
-	
 	init(argc, argv, &data);
 	size = ft_size(data.stack_a->list);
-	if (size == 5)
+	
+	arr = malloc(sizeof(int *) * size);
+	if (arr == NULL)
+		return (-1);
+	fill_array(data.stack_a->list, arr, size);
+	if (contains_duplicate(arr, size))
+		ft_printf("Yes, contains duplicate!\n");
+	else
+		ft_printf("No, not contains duplicate!\n");
+	i = -1;
+	while (++i < size)
+		ft_printf("%d ", arr[i]);
+	ft_printf("\n");
+	
+	/* if (size == 5)
 		sort_five(&data);
 	else if (size == 4)
 		sort_four(&data);
 	else if (size == 3)
 		sort_three(&data);
 	else if (size == 2)
-		sort_two(&data);
-
+		sort_two(&data); */
+	
+	
 	/* current = data.stack_a->list;
 	while (current != NULL)
 	{
@@ -48,5 +64,6 @@ int	main(int argc, char **argv)
 		}
 		ft_printf("\n");
 	} */
-	free_stacks(&data);	
+	free(arr);
+	free_stacks(&data);
 }
