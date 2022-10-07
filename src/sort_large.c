@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/07 19:08:57 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/07 20:07:53 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ void	skip_bigger_mid(t_data *data)
 		rotate_a(data->stack_a);
 }
 
+void	skip_equals_mid(t_data *data)
+{
+	if (data->stack_a->list->value == data->stack_a->mid)
+		rotate_a(data->stack_a);
+}
+
 void	put_smallests_to_b(t_data *data)
 {
 	while (ft_size(data->stack_a->list) > 2)
@@ -59,12 +65,10 @@ void	put_smallests_to_b(t_data *data)
 		skip_bigger_mid(data);
 		push_before_mid(data);
 		skip_bigger_mid(data);
-		if (data->stack_a->list->value == data->stack_a->mid)
-			rotate_a(data->stack_a);
+		skip_equals_mid(data);
 		push_before_mid(data);
 	}
-	if (data->stack_a->list < data->stack_a->list->next)
-		swap_sa(data);
+	sort_two(data);
 }
 
 void	sort_large(t_data *data)
