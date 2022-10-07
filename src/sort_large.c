@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/07 14:51:22 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/07 18:05:43 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,50 @@ void	set_data(t_data *data)
 	fill_array(data->stack_a->list, arr, data->stack_a->size);
 	quick_sort(arr, 0, data->stack_a->size - 1);
 	data->stack_a->mid = arr[data->stack_a->size / 2];
+	free(arr);
+}
+
+void	push_before_mid(t_data *data)
+{
+	while (data->stack_a->list->value < data->stack_a->mid)
+		push_b(data);
+}
+
+void	push_after_mid(t_data *data)
+{
+	t_node	*last;
+
+	last = ft_last(data->stack_a->list);
+	while (last->value < data->stack_a->mid)
+	{
+		reverse_rotate_a(data->stack_a);
+		push_b(data);
+		last = ft_last(data->stack_a->list);
+	}
+}
+
+void	skip_bigger_mid(t_data *data)
+{
+	while (data->stack_a->list->value > data->stack_a->mid)
+		rotate_a(data->stack_a);
 }
 
 void	put_smallests_to_b(t_data *data)
 {
-	set_data(data);
-	while (data->stack_a->list->value < data->stack_a->mid)
-		push_b(data);
+	while (ft_size(data->stack_a->list) > 2)
+	{
+		set_data(data);
+		push_before_mid(data);
+		push_after_mid(data);
+		skip_bigger_mid(data);
+		push_before_mid(data);
+		skip_bigger_mid(data);
+		if (data->stack_a->list->value == data->stack_a->mid)
+			rotate_a(data->stack_a);
+		push_before_mid(data);
+	}
+	if (data->stack_a->list < data->stack_a->list->next)
+		swap_sa(data);
 }
 
 void	sort_large(t_data *data)
