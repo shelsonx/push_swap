@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/06 12:29:35 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/07 21:47:12 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,13 @@ void	sort_two(t_data *data);
 void	sort_three(t_data *data);
 void	sort_four(t_data *data);
 void	sort_five(t_data *data);
+
+//sort large utils
+void	set_mid_value(t_data *data);
+void	push_after_mid(t_data *data);
+void	push_before_mid(t_data *data);
+void	skip_bigger_mid(t_data *data);
+void	skip_equals_mid(t_data *data);
 
 //sort large
 void	sort_large(t_data *data);
