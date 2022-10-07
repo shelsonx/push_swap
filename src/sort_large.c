@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/07 21:46:21 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/07 22:06:30 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,8 @@ void	put_smallests_to_b(t_data *data)
 		sort_two(data);
 		return ;
 	}
-	else
-	{
-		steps_to_push_smallests(data);
-		put_smallests_to_b(data);
-	}
+	steps_to_push_smallests(data);
+	put_smallests_to_b(data);
 }
 
 void	sort_large(t_data *data)
