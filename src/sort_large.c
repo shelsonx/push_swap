@@ -6,13 +6,13 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/07 18:05:43 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/07 19:08:57 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_data(t_data *data)
+void	set_mid_value(t_data *data)
 {
 	int	*arr;
 
@@ -53,7 +53,7 @@ void	put_smallests_to_b(t_data *data)
 {
 	while (ft_size(data->stack_a->list) > 2)
 	{
-		set_data(data);
+		set_mid_value(data);
 		push_before_mid(data);
 		push_after_mid(data);
 		skip_bigger_mid(data);

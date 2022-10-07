@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:28:34 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/06 08:55:44 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/07 18:34:07 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int argc, char **argv)
 	else if (size == 2)
 		sort_two(&data);
 	else
+		//2 3 5 12 10 6 9 7 4 1 8 11
 		sort_large(&data);
 	show_stacks(&data);
 	free(arr);
