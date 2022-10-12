@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/07 21:47:12 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/08 02:45:12 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_data
 	char			**argv;
 	struct s_stack	*stack_a;
 	struct s_stack	*stack_b;
+	t_node			*chunks;
 }	t_data;
 
 //Functions to operations node
@@ -88,6 +89,13 @@ void	push_after_mid(t_data *data);
 void	push_before_mid(t_data *data);
 void	skip_bigger_mid(t_data *data);
 void	skip_equals_mid(t_data *data);
+
+//TEST sort large pull
+void	set_mid_value_stack_b(t_data *data);
+void	pull_after_mid(t_data *data);
+void	pull_before_mid(t_data *data);
+void	skip_smallest_mid(t_data *data);
+void	skip_equals_mid_stack_b(t_data *data);
 
 //sort large
 void	sort_large(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:36:45 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/06 12:06:55 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/08 02:09:41 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	init_stacks(t_data *data)
 	if (data->stack_a == NULL)
 		return ;
 	data->stack_a->list = NULL;
+	data->chunks = NULL;
 	i = 0;
 	while (++i < data->argc)
 		ft_add_back(&data->stack_a->list,
