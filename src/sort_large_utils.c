@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 21:42:36 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/07 21:46:53 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:59:02 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	push_before_mid(t_data *data)
 }
 
 void	skip_bigger_mid(t_data *data)
-{
+{	
 	while (data->stack_a->list->value > data->stack_a->mid)
 		rotate_a(data->stack_a);
 }
