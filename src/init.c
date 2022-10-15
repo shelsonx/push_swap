@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:36:45 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 06:10:49 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 07:19:05 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ void	init(int argc, char **argv, t_data *data)
 	data->argc = argc;
 	data->argv = argv;
 	init_stacks(data);
+	set_indexes(data->stack_a->list);
 }
