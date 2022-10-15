@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:52 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 17:18:44 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 16:05:31 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	reverse_rotate(t_stack *stack)
 	tail = current->next;
 	current->next = NULL;
 	ft_add_front(&stack->list,
-		ft_new(tail->value));
+		ft_new(tail->value, tail->index));
 	free(tail);
 }
 

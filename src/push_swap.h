@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 09:00:56 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 15:53:47 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,13 @@ void	ft_add_back(t_node **lst, t_node *new_node);
 void	ft_add_front(t_node **lst, t_node *new_node);
 int		ft_size(t_node *lst);
 void	ft_free_nodes(t_node **lst);
-t_node	*ft_new(int value);
+t_node	*ft_new(int value, int index);
 
 //init data
 void	init(int argc, char **argv, t_data *data);
 void	init_stack_b(t_data *data);
 void	set_indexes(t_node *list);
+void	set_positions(t_node *list);
 
 //swap operations
 void	swap_sa(t_data *data);
@@ -94,6 +95,7 @@ void	push_after_mid(t_data *data);
 void	push_before_mid(t_data *data);
 void	skip_bigger_mid(t_data *data);
 void	skip_equals_mid(t_data *data);
+int	get_target_pos(t_stack *stack, int index);
 
 //TEST sort large pull
 void	set_mid_value_stack_b(t_data *data);

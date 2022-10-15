@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:34:27 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/05 05:59:53 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 16:12:24 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 static	void	swap(t_node *list)
 {
-	int	tmp;
+	int	tmp_value;
+	int	tmp_index;
 
-	tmp = list->value;
+	tmp_value = list->value;
+	tmp_index = list->index;
 	list->value = list->next->value;
-	list->next->value = tmp;
+	list->index = list->next->index;
+	list->next->value = tmp_value;
+	list->next->index = tmp_index;
 }
 
 void	swap_sa(t_data *data)

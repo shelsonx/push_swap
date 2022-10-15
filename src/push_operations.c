@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 20:13:32 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 00:48:42 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 15:54:04 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	push(t_stack *first, t_stack *second)
 	t_node	*tmp;
 
 	ft_add_front(&second->list,
-		ft_new(first->list->value));
+		ft_new(first->list->value, first->list->index));
 	tmp = first->list->next;
 	free(first->list);
 	first->list = tmp;

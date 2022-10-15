@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:52 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/09/28 17:20:37 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 16:01:48 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 static void	rotate(t_stack *stack)
 {
 	int		head_value;
+	int		head_index;
 	t_node	*tmp;
 
 	head_value = stack->list->value;
+	head_index = stack->list->index;
 	tmp = stack->list;
 	stack->list = stack->list->next;
 	free(tmp);
 	ft_add_back(&stack->list,
-		ft_new(head_value));
+		ft_new(head_value, head_index));
 }
 
 void	rotate_a(t_stack *stack_a)
