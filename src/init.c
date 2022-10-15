@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:36:45 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 07:19:05 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 09:01:58 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,21 @@ void	set_indexes(t_node *list)
 	free(arr);
 }
 
+void	set_positions(t_node *list)
+{
+	t_node	*current;
+	int		i;
+
+	i = 0;
+	current = list;
+	while (current)
+	{
+		current->position = i;
+		i++;
+		current = current->next;
+	}
+}
+
 void	init_stack_b(t_data *data)
 {
 	data->stack_b = malloc(sizeof(t_stack));
@@ -70,4 +85,5 @@ void	init(int argc, char **argv, t_data *data)
 	data->argv = argv;
 	init_stacks(data);
 	set_indexes(data->stack_a->list);
+	set_positions(data->stack_a->list);
 }

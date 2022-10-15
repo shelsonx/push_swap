@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 06:07:03 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 09:00:56 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_node
 {
 	int				index;
-	int				pos;
+	int				position;
 	int				target_pos;
 	int				value;
 	struct s_node	*next;

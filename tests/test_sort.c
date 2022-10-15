@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:28:34 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 07:55:16 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 09:02:57 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	show_stacks(t_data *data)
 	while (current != NULL)
 	{
 		ft_printf("%d ", current->value);
-		//ft_printf("value= %d index= %d\n", current->value, current->index);
+		//ft_printf("value= %d index= %d position= %d\n", current->value, current->index, current->position);
 		current = current->next;
 	}
 	ft_printf("\n");
@@ -50,16 +50,11 @@ int	main(int argc, char **argv)
 	if (arr == NULL)
 		return (-1);
 	fill_array(data.stack_a->list, arr, size);
-	
-	if (size == 5)
-		sort_five(&data);
-	else if (size == 4)
-		sort_four(&data);
+	if (size == 2)
+		sort_two(&data);
 	else if (size == 3)
 		sort_three(&data);
-	else if (size == 2)
-		sort_two(&data);
-	else if (size >= 6)
+	else if (size > 3)
 		//2 3 5 12 10 6 9 7 4 1 8 11
 		sort_large(&data);
 	show_stacks(&data);

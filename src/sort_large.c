@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 08:30:44 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 08:51:15 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	put_biggets_to_a(t_data *data)
 
 void	sort_large(t_data *data)
 {
-	//data->stack_a->size = data->stack_a->size;
-	put_smallests_to_b(data);
+	data->stack_a->size = data->stack_a->size;
+	//put_smallests_to_b(data);
 	//put_biggets_to_a(data);
 }
