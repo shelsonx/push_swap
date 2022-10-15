@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/14 08:39:21 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 06:07:03 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 typedef struct s_node
 {
+	int				index;
+	int				pos;
+	int				target_pos;
 	int				value;
 	struct s_node	*next;
 }	t_node;
@@ -26,6 +29,7 @@ typedef struct s_node
 typedef struct s_stack
 {
 	struct s_node	*list;
+	int				cost;
 	int				size;
 	int				mid;
 }	t_stack;
@@ -36,7 +40,6 @@ typedef struct s_data
 	char			**argv;
 	struct s_stack	*stack_a;
 	struct s_stack	*stack_b;
-	t_node			*chunks;
 }	t_data;
 
 //Functions to operations node
@@ -50,6 +53,7 @@ t_node	*ft_new(int value);
 //init data
 void	init(int argc, char **argv, t_data *data);
 void	init_stack_b(t_data *data);
+void	set_indexes(t_node *list);
 
 //swap operations
 void	swap_sa(t_data *data);

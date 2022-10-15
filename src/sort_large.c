@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/14 17:01:16 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 06:06:48 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ void	steps_to_pull_smallests(t_data *data)
 		
 }
 
-void	add_chunk(t_data *data)
-{
-	ft_add_front(&data->chunks, 
-		ft_new(data->stack_b->list->value));
-}
 
 void	put_smallests_to_b(t_data *data)
 {
@@ -85,6 +80,7 @@ void	put_biggets_to_a(t_data *data)
 
 void	sort_large(t_data *data)
 {
-	put_smallests_to_b(data);
-	put_biggets_to_a(data);
+	set_indexes(data->stack_a->list);
+	//put_smallests_to_b(data);
+	//put_biggets_to_a(data);
 }

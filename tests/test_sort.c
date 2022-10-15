@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:28:34 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/14 17:00:07 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 06:11:12 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	show_stacks(t_data *data)
 	while (current != NULL)
 	{
 		ft_printf("%d ", current->value);
+		//ft_printf("value= %d index= %d\n", current->value, current->index);
 		current = current->next;
 	}
 	ft_printf("\n");
