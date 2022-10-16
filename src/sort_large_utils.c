@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 21:42:36 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/12 17:59:02 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/16 07:45:50 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,32 @@ void	skip_equals_mid(t_data *data)
 {
 	if (data->stack_a->list->value == data->stack_a->mid)
 		rotate_a(data->stack_a);
+}
+
+int	get_target_pos(t_stack *stack, int index)
+{
+	t_node	*current;
+
+	current = stack->list;
+	while (current->next)
+	{
+		if (current->index < index && index < current->next->index)
+			return current->next->position;
+		current = current->next;	
+	}
+	if (current->next == NULL)
+		return (find_smallest_position(stack->list));
+	return (-1);
+}
+
+void	set_targets_pos(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*current;
+
+	current = stack_b->list;
+	while (current)
+	{
+		current->target_pos = get_target_pos(stack_a, current->index);;
+		current = current->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:28:34 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/04 23:53:09 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 23:43:39 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,49 +47,4 @@ void	sort_three(t_data *data)
 	else if (list->value < list->next->value && list->next->value
 		> list->next->next->value && list->next->next->value < list->value)
 		reverse_rotate_a(data->stack_a);
-}
-
-void	sort_four(t_data *data)
-{
-	int	smallest;
-
-	smallest = find_smallest_index(data->stack_a->list);
-	if (smallest == 1)
-		rotate_a(data->stack_a);
-	else if (smallest == 2)
-	{
-		reverse_rotate_a(data->stack_a);
-		reverse_rotate_a(data->stack_a);
-	}
-	else if (smallest == 3)
-		reverse_rotate_a(data->stack_a);
-	push_b(data);
-	sort_three(data);
-	push_a(data);
-}
-
-void	sort_five(t_data *data)
-{
-	int	smallest;
-
-	smallest = find_smallest_index(data->stack_a->list);
-	if (smallest == 1)
-		rotate_a(data->stack_a);
-	else if (smallest == 2)
-	{
-		reverse_rotate_a(data->stack_a);
-		reverse_rotate_a(data->stack_a);
-		reverse_rotate_a(data->stack_a);
-	}
-	else if (smallest == 3)
-	{
-		rotate_a(data->stack_a);
-		rotate_a(data->stack_a);
-		rotate_a(data->stack_a);
-	}
-	else if (smallest == 4)
-		reverse_rotate_a(data->stack_a);
-	push_b(data);
-	sort_four(data);
-	push_a(data);
 }

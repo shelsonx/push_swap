@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 15:53:47 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/16 07:43:02 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	reverse_rotate_all(t_stack *stack_a, t_stack *stack_b);
 void	free_stacks(t_data *data);
 
 //utils
-int		find_smallest_index(t_node *list);
+int		find_smallest_position(t_node *list);
 int		find_biggest(t_node *list);
 int		find_index(t_node *list, int value);
 void	fill_array(t_node *list, int *arr, int size);
@@ -95,7 +95,8 @@ void	push_after_mid(t_data *data);
 void	push_before_mid(t_data *data);
 void	skip_bigger_mid(t_data *data);
 void	skip_equals_mid(t_data *data);
-int	get_target_pos(t_stack *stack, int index);
+int		get_target_pos(t_stack *stack, int index);
+void	set_targets_pos(t_stack *stack_a, t_stack *stack_b);
 
 //TEST sort large pull
 void	set_mid_value_stack_b(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:36:45 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 09:01:58 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 16:11:03 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	init_stacks(t_data *data)
 	i = 0;
 	while (++i < data->argc)
 		ft_add_back(&data->stack_a->list,
-			ft_new(ft_atoi(data->argv[i])));
+			ft_new(ft_atoi(data->argv[i]), -1));
 	data->stack_a->size = ft_size(data->stack_a->list);
 	data->stack_b = NULL;
 }

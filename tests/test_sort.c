@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:28:34 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 09:02:57 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/15 15:15:41 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,24 @@ void	show_stacks(t_data *data)
 	t_node *current_2;
 
 	current = data->stack_a->list;
+	ft_printf("STACK A\n");
 	while (current != NULL)
 	{
-		ft_printf("%d ", current->value);
-		//ft_printf("value= %d index= %d position= %d\n", current->value, current->index, current->position);
+		//ft_printf("%d ", current->value);
+		ft_printf("value= %d index= %d position= %d\n", 
+			current->value, current->index, current->position);
 		current = current->next;
 	}
 	ft_printf("\n");
 	if (data->stack_b != NULL)
 	{
 		current_2 = data->stack_b->list;
+		ft_printf("STACK B\n");
 		while (current_2 != NULL)
 		{
-			ft_printf("%d ", current_2->value);
+			//ft_printf("%d ", current_2->value);
+			ft_printf("value= %d index= %d position= %d target_pos= %d\n", 
+				current_2->value, current_2->index, current_2->position, current_2->target_pos);
 			current_2 = current_2->next;
 		}
 		ft_printf("\n");
