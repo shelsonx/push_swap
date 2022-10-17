@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/17 03:54:11 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:36:12 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,13 @@ void	put_biggets_to_a(t_data *data)
 	}
 }
 
+int	abs(int value)
+{
+	if (value < 0)
+		return (value * -1);
+	return (value);
+}
+
 void	sort_large(t_data *data)
 {
 	//data->stack_a->size = data->stack_a->size;
@@ -83,5 +90,7 @@ void	sort_large(t_data *data)
 	set_positions(data->stack_b->list);
 	set_targets_pos(data->stack_a, data->stack_b);
 	set_costs(data);
+	ft_printf("value %d your abs= %d\n", 
+		data->stack_b->list->next->cost_a, abs(data->stack_b->list->next->cost_a));
 	//put_biggets_to_a(data);
 }
