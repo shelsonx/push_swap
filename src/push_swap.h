@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/16 07:43:02 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/17 05:04:18 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_node
 	int				index;
 	int				position;
 	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	int				value;
 	struct s_node	*next;
 }	t_node;
@@ -29,7 +31,6 @@ typedef struct s_node
 typedef struct s_stack
 {
 	struct s_node	*list;
-	int				cost;
 	int				size;
 	int				mid;
 }	t_stack;
@@ -97,6 +98,7 @@ void	skip_bigger_mid(t_data *data);
 void	skip_equals_mid(t_data *data);
 int		get_target_pos(t_stack *stack, int index);
 void	set_targets_pos(t_stack *stack_a, t_stack *stack_b);
+void	set_costs(t_data *data);
 
 //TEST sort large pull
 void	set_mid_value_stack_b(t_data *data);
