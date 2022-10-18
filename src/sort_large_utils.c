@@ -6,26 +6,30 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 21:42:36 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/17 13:13:59 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:40:48 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_target_pos(t_stack *stack, int index)
+void	set_target(t_stack *stack, t_node *element)
 {
 	t_node	*current;
+	int biggest;
 
+	biggest = find_biggest(stack->list);
 	current = stack->list;
-	while (current->next)
+	while (current)
 	{
-		if (current->index < index && index < current->next->index)
-			return current->next->position;
+		if (element->index < current->index && current->index <= biggest)
+		{
+			element->target_pos = current->position;
+			biggest = current->index;
+		}
 		current = current->next;	
 	}
-	if (current->next == NULL)
-		return (find_smallest_position(stack->list));
-	return (-1);
+	if (element->index > biggest)
+		element->target_pos = find_smallest_position(stack->list);
 }
 
 void	set_targets_pos(t_stack *stack_a, t_stack *stack_b)
@@ -35,7 +39,7 @@ void	set_targets_pos(t_stack *stack_a, t_stack *stack_b)
 	current = stack_b->list;
 	while (current)
 	{
-		current->target_pos = get_target_pos(stack_a, current->index);;
+		set_target(stack_a, current);
 		current = current->next;
 	}
 }
