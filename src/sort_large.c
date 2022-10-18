@@ -6,29 +6,11 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/17 13:36:12 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:49:34 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-void	steps_to_pull_smallests(t_data *data)
-{
-	set_mid_value_stack_b(data);
-	pull_before_mid(data);
-	//pull_after_mid(data);
-	skip_equals_mid_stack_b(data);
-	skip_smallest_mid(data);
-	pull_before_mid(data);
-	skip_smallest_mid(data);
-	//skip_equals_mid_stack_b(data);
-	pull_before_mid(data);
-	if (data->stack_b->list->value == data->stack_b->mid
-		&& data->stack_b->list->value > data->stack_b->list->next->value)
-		push_a(data);
-		
-}
 
 void	put_smallests_to_b(t_data *data)
 {
@@ -49,31 +31,6 @@ void	put_smallests_to_b(t_data *data)
 		push_b(data);
 }
 
-void	put_biggets_to_a(t_data *data)
-{
-	int biggest;
-	int	size;
-	int	mid;
-	int	index_biggest;
-
-	while (ft_size(data->stack_b->list) > 0)
-	{
-		biggest = find_biggest(data->stack_b->list);
-		size = ft_size(data->stack_b->list);
-		mid = size / 2;
-		index_biggest = find_index(data->stack_b->list, biggest);
-
-		while (data->stack_b->list->value < biggest)
-		{
-			if (index_biggest > mid)
-				reverse_rotate_b(data->stack_b);
-			else
-				rotate_b(data->stack_b);
-		}
-		push_a(data);
-	}
-}
-
 int	abs(int value)
 {
 	if (value < 0)
@@ -81,16 +38,84 @@ int	abs(int value)
 	return (value);
 }
 
+int	get_total_cost(t_node *node)
+{
+	return (abs(node->cost_a) + abs(node->cost_b));
+}
+
+t_node	*get_cheaper(t_node *list)
+{
+	t_node	*current;
+	t_node	*cheaper;
+
+	current = list;
+	cheaper = list;
+	while (current)
+	{
+		if (get_total_cost(current) < get_total_cost(cheaper))
+			cheaper = current;
+		current = current->next;
+	}
+	return (cheaper);
+}
+
+void	rotate_stacks(t_data *data, t_node *node_cheaper)
+{
+	while (node_cheaper->cost_a > 0 && node_cheaper->cost_b > 0)
+	{
+		rotate_all(data->stack_a, data->stack_b);
+		node_cheaper->cost_a--;
+		node_cheaper->cost_b--;
+	}
+	while (node_cheaper->cost_a < 0 && node_cheaper->cost_b < 0)
+	{
+		reverse_rotate_all(data->stack_a, data->stack_b);
+		node_cheaper->cost_a++;
+		node_cheaper->cost_b++;
+	}
+}
+
+void	rotate_stack(int *cost, t_stack *stack, 
+		void(*r)(t_stack *), void(*rr)(t_stack *))
+{
+	while (*cost)
+	{
+		if (*cost > 0)
+		{
+			r(stack);
+			(*cost)--;
+		}
+		else
+		{
+			rr(stack);
+			(*cost)++;
+		}
+	}
+}
+
+void	run_actions(t_data *data, t_node *node_cheaper)
+{
+	rotate_stacks(data, node_cheaper);
+	rotate_stack(&node_cheaper->cost_a, data->stack_a, rotate_a, reverse_rotate_a);
+	rotate_stack(&node_cheaper->cost_b, data->stack_b, rotate_b, reverse_rotate_b);
+}
+
 void	sort_large(t_data *data)
 {
-	//data->stack_a->size = data->stack_a->size;
+	t_node	*node_cheaper;
+	int		size;
+
 	put_smallests_to_b(data);
 	sort_three(data);
-	set_positions(data->stack_a->list);
-	set_positions(data->stack_b->list);
-	set_targets_pos(data->stack_a, data->stack_b);
-	set_costs(data);
-	ft_printf("value %d your abs= %d\n", 
-		data->stack_b->list->next->cost_a, abs(data->stack_b->list->next->cost_a));
-	//put_biggets_to_a(data);
+	size = ft_size(data->stack_b->list);
+	while (size--)
+	{
+		set_positions(data->stack_a->list);
+		set_positions(data->stack_b->list);
+		set_targets_pos(data->stack_a, data->stack_b);
+		set_costs(data);
+		node_cheaper = get_cheaper(data->stack_b->list);
+		run_actions(data, node_cheaper);
+		push_a(data);
+	}
 }

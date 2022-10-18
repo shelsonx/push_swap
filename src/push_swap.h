@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/17 05:04:18 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:41:03 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	push_after_mid(t_data *data);
 void	push_before_mid(t_data *data);
 void	skip_bigger_mid(t_data *data);
 void	skip_equals_mid(t_data *data);
-int		get_target_pos(t_stack *stack, int index);
+void	set_target(t_stack *stack, t_node *element);
 void	set_targets_pos(t_stack *stack_a, t_stack *stack_b);
 void	set_costs(t_data *data);
 

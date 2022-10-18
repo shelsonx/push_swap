@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 23:43:03 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 23:43:50 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/17 19:05:55 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	find_biggest(t_node *list)
 	int		biggest;
 
 	current = list;
-	biggest = list->value;
+	biggest = list->index;
 	while (current != NULL)
 	{
-		if (current->value > biggest)
-			biggest = current->value;
+		if (current->index > biggest)
+			biggest = current->index;
 		current = current->next;
 	}
 	return (biggest);
