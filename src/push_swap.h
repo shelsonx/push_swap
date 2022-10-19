@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/18 15:41:03 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/18 20:47:23 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ void	free_stacks(t_data *data);
 
 //utils
 int		find_smallest_position(t_node *list);
-int		find_biggest(t_node *list);
+int		find_biggest_position(t_node *list);
+int		find_biggest_index(t_node *list);
 int		find_index(t_node *list, int value);
 void	fill_array(t_node *list, int *arr, int size);
 

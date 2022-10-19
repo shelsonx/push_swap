@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 23:43:03 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/17 19:05:55 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/18 20:47:04 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,28 @@ int	find_smallest_position(t_node *list)
 	return (smallest_position);
 }
 
-int	find_biggest(t_node *list)
+int	find_biggest_position(t_node *list)
+{
+	t_node	*current;
+	int		biggest;
+	int		biggest_position;
+
+	current = list;
+	biggest = list->index;
+	biggest_position = 0;
+	while (current != NULL)
+	{
+		if (current->index > biggest)
+		{
+			biggest = current->index;
+			biggest_position = current->position;
+		}
+		current = current->next;
+	}
+	return (biggest_position);
+}
+
+int	find_biggest_index(t_node *list)
 {
 	t_node	*current;
 	int		biggest;

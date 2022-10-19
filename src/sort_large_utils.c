@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 21:42:36 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/18 15:40:48 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/19 01:56:56 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	set_target(t_stack *stack, t_node *element)
 	t_node	*current;
 	int biggest;
 
-	biggest = find_biggest(stack->list);
+	biggest = find_biggest_index(stack->list);
 	current = stack->list;
 	while (current)
 	{
@@ -26,7 +26,7 @@ void	set_target(t_stack *stack, t_node *element)
 			element->target_pos = current->position;
 			biggest = current->index;
 		}
-		current = current->next;	
+		current = current->next;
 	}
 	if (element->index > biggest)
 		element->target_pos = find_smallest_position(stack->list);

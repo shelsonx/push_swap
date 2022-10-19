@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/18 18:49:34 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/19 01:58:38 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_node	*get_cheaper(t_node *list)
 
 	current = list;
 	cheaper = list;
-	while (current)
+	while (current->next)
 	{
 		if (get_total_cost(current) < get_total_cost(cheaper))
 			cheaper = current;
@@ -103,7 +103,9 @@ void	run_actions(t_data *data, t_node *node_cheaper)
 void	sort_large(t_data *data)
 {
 	t_node	*node_cheaper;
+	t_node	*last;
 	int		size;
+	int		biggest_index;
 
 	put_smallests_to_b(data);
 	sort_three(data);
@@ -118,4 +120,30 @@ void	sort_large(t_data *data)
 		run_actions(data, node_cheaper);
 		push_a(data);
 	}
+	set_positions(data->stack_a->list);
+	last = ft_last(data->stack_a->list);
+	size = ft_size(data->stack_a->list);
+	
+	biggest_index = find_biggest_position(data->stack_a->list);
+	while (last->index != size)
+	{
+		if (biggest_index < (size / 2))
+			rotate_a(data->stack_a);
+		else
+			reverse_rotate_a(data->stack_a);
+		last = ft_last(data->stack_a->list);
+	}
+	set_positions(data->stack_a->list);
+	while (data->stack_a->list->index != 1)
+	{
+		if (biggest_index < size / 2)
+			rotate_a(data->stack_a);
+		else
+			reverse_rotate_a(data->stack_a);
+	}
+	set_positions(data->stack_a->list);
+	if (is_sorted(data->stack_a->list))
+		ft_printf("Yes!\n");
+	else
+		ft_printf("No!\n");
 }
