@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	set_target(t_stack *stack, t_node *element)
+static void	set_target(t_stack *stack, t_node *element)
 {
 	t_node	*current;
 	int biggest;
@@ -40,6 +40,49 @@ void	set_targets_pos(t_stack *stack_a, t_stack *stack_b)
 	while (current)
 	{
 		set_target(stack_a, current);
+		current = current->next;
+	}
+}
+
+static void	set_index(t_node *list, int size, int index)
+{
+	t_node	*current;
+	int		i;
+
+	i = -1;
+	current = list;
+	while (++i < size)
+		current = current->next;
+	current->index = index;
+}
+
+void	set_indexes(t_node *list)
+{
+	int	size;
+	int	i;
+	int	*arr;
+
+	size = ft_size(list);
+	arr = malloc(sizeof(int *) * size);
+	fill_array(list, arr, size);
+	quick_sort(arr, 0, size - 1);
+	i = -1;
+	while (++i < size)
+		set_index(list, find_index(list, arr[i]), i +1);
+	free(arr);
+}
+
+void	set_positions(t_node *list)
+{
+	t_node	*current;
+	int		i;
+
+	i = 0;
+	current = list;
+	while (current)
+	{
+		current->position = i;
+		i++;
 		current = current->next;
 	}
 }

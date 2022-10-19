@@ -54,8 +54,6 @@ t_node	*ft_new(int value, int index);
 //init data
 void	init(int argc, char **argv, t_data *data);
 void	init_stack_b(t_data *data);
-void	set_indexes(t_node *list);
-void	set_positions(t_node *list);
 
 //swap operations
 void	swap_sa(t_data *data);
@@ -91,14 +89,11 @@ void	sort_three(t_data *data);
 void	sort_four(t_data *data);
 void	sort_five(t_data *data);
 
-//sort large utils
-void	set_mid_value(t_data *data);
-void	push_after_mid(t_data *data);
-void	push_before_mid(t_data *data);
-void	skip_bigger_mid(t_data *data);
-void	skip_equals_mid(t_data *data);
-void	set_target(t_stack *stack, t_node *element);
+//positions
 void	set_targets_pos(t_stack *stack_a, t_stack *stack_b);
+void	set_indexes(t_node *list);
+void	set_positions(t_node *list);
+
 void	set_costs(t_data *data);
 
 //sort large

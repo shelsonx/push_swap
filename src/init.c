@@ -28,49 +28,6 @@ static void	init_stacks(t_data *data)
 	data->stack_b = NULL;
 }
 
-void	set_index(t_node *list, int size, int index)
-{
-	t_node	*current;
-	int		i;
-
-	i = -1;
-	current = list;
-	while (++i < size)
-		current = current->next;
-	current->index = index;
-}
-
-void	set_indexes(t_node *list)
-{
-	int	size;
-	int	i;
-	int	*arr;
-
-	size = ft_size(list);
-	arr = malloc(sizeof(int *) * size);
-	fill_array(list, arr, size);
-	quick_sort(arr, 0, size - 1);
-	i = -1;
-	while (++i < size)
-		set_index(list, find_index(list, arr[i]), i +1);
-	free(arr);
-}
-
-void	set_positions(t_node *list)
-{
-	t_node	*current;
-	int		i;
-
-	i = 0;
-	current = list;
-	while (current)
-	{
-		current->position = i;
-		i++;
-		current = current->next;
-	}
-}
-
 void	init_stack_b(t_data *data)
 {
 	data->stack_b = malloc(sizeof(t_stack));
