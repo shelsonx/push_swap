@@ -31,34 +31,6 @@ void	put_smallests_to_b(t_data *data)
 		push_b(data);
 }
 
-int	abs(int value)
-{
-	if (value < 0)
-		return (value * -1);
-	return (value);
-}
-
-int	get_total_cost(t_node *node)
-{
-	return (abs(node->cost_a) + abs(node->cost_b));
-}
-
-t_node	*get_cheaper(t_node *list)
-{
-	t_node	*current;
-	t_node	*cheaper;
-
-	current = list;
-	cheaper = list;
-	while (current->next)
-	{
-		if (get_total_cost(current) < get_total_cost(cheaper))
-			cheaper = current;
-		current = current->next;
-	}
-	return (cheaper);
-}
-
 void	rotate_stacks(t_data *data, t_node *node_cheaper)
 {
 	while (node_cheaper->cost_a > 0 && node_cheaper->cost_b > 0)

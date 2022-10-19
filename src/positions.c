@@ -86,30 +86,3 @@ void	set_positions(t_node *list)
 		current = current->next;
 	}
 }
-
-int	get_cost(int position, int size)
-{
-	int mid;
-
-	mid =  size / 2;
-	if (position > mid)
-		return (position - size);
-	return (position);
-}
-
-void	set_costs(t_data *data)
-{
-	int size_a;
-	int size_b;
-	t_node *current;
-
-	size_a = ft_size(data->stack_a->list);
-	size_b = ft_size(data->stack_b->list);
-	current = data->stack_b->list;
-	while (current)
-	{
-		current->cost_a = get_cost(current->target_pos, size_a);
-		current->cost_b = get_cost(current->position, size_b);
-		current = current->next;
-	}
-}

@@ -86,15 +86,15 @@ void	fill_array(t_node *list, int *arr, int size);
 //sort small
 void	sort_two(t_data *data);
 void	sort_three(t_data *data);
-void	sort_four(t_data *data);
-void	sort_five(t_data *data);
 
 //positions
 void	set_targets_pos(t_stack *stack_a, t_stack *stack_b);
 void	set_indexes(t_node *list);
 void	set_positions(t_node *list);
 
+//costs
 void	set_costs(t_data *data);
+t_node	*get_cheaper(t_node *list);
 
 //sort large
 void	sort_large(t_data *data);
