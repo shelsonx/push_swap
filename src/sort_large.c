@@ -104,15 +104,15 @@ void	adjust_last_element(t_stack *stack_a)
 {
 	t_node	*last;
 	int		size;
-	int		biggest_index;
+	int		biggest_position;
 
 	set_positions(stack_a->list);
 	last = ft_last(stack_a->list);
 	size = ft_size(stack_a->list);
-	biggest_index = find_biggest_position(stack_a->list);
+	biggest_position = find_biggest_position(stack_a->list);
 	while (last->index != size)
 	{
-		if (biggest_index < (size / 2))
+		if (biggest_position < (size / 2))
 			rotate_a(stack_a);
 		else
 			reverse_rotate_a(stack_a);
@@ -123,14 +123,14 @@ void	adjust_last_element(t_stack *stack_a)
 void	adjust_first_element(t_stack *stack_a)
 {
 	int		size;
-	int		biggest_index;
+	int		smallest_position;
 
 	set_positions(stack_a->list);
 	size = ft_size(stack_a->list);
-	biggest_index = find_biggest_position(stack_a->list);
+	smallest_position = find_smallest_position(stack_a->list);
 	while (stack_a->list->index != 1)
 	{
-		if (biggest_index < size / 2)
+		if (smallest_position < size / 2)
 			rotate_a(stack_a);
 		else
 			reverse_rotate_a(stack_a);

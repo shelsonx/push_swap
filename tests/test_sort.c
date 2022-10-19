@@ -65,7 +65,6 @@ int	main(int argc, char **argv)
 	else if (size == 3)
 		sort_three(&data);
 	else if (size > 3)
-		//2 3 5 12 10 6 9 7 4 1 8 11
 		sort_large(&data);
 	show_stacks(&data);
 	free(arr);
