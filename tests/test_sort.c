@@ -41,6 +41,10 @@ void	show_stacks(t_data *data)
 		}
 		ft_printf("\n");
 	}
+	if (is_sorted(data->stack_a->list))
+		ft_printf("Yes, Sorted!\n");
+	else
+		ft_printf("No!\n");
 }
 
 int	main(int argc, char **argv)

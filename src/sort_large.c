@@ -100,12 +100,54 @@ void	run_actions(t_data *data, t_node *node_cheaper)
 	rotate_stack(&node_cheaper->cost_b, data->stack_b, rotate_b, reverse_rotate_b);
 }
 
-void	sort_large(t_data *data)
+void	adjust_last_element(t_stack *stack_a)
 {
-	t_node	*node_cheaper;
 	t_node	*last;
 	int		size;
 	int		biggest_index;
+
+	set_positions(stack_a->list);
+	last = ft_last(stack_a->list);
+	size = ft_size(stack_a->list);
+	biggest_index = find_biggest_position(stack_a->list);
+	while (last->index != size)
+	{
+		if (biggest_index < (size / 2))
+			rotate_a(stack_a);
+		else
+			reverse_rotate_a(stack_a);
+		last = ft_last(stack_a->list);
+	}
+}
+
+void	adjust_first_element(t_stack *stack_a)
+{
+	int		size;
+	int		biggest_index;
+
+	set_positions(stack_a->list);
+	size = ft_size(stack_a->list);
+	biggest_index = find_biggest_position(stack_a->list);
+	while (stack_a->list->index != 1)
+	{
+		if (biggest_index < size / 2)
+			rotate_a(stack_a);
+		else
+			reverse_rotate_a(stack_a);
+	}
+	set_positions(stack_a->list);
+}
+
+void	adjust_stack_a(t_stack *stack_a)
+{
+	adjust_first_element(stack_a);
+	adjust_last_element(stack_a);
+}
+
+void	sort_large(t_data *data)
+{
+	t_node	*node_cheaper;
+	int		size;
 
 	put_smallests_to_b(data);
 	sort_three(data);
@@ -120,30 +162,6 @@ void	sort_large(t_data *data)
 		run_actions(data, node_cheaper);
 		push_a(data);
 	}
-	set_positions(data->stack_a->list);
-	last = ft_last(data->stack_a->list);
-	size = ft_size(data->stack_a->list);
-	
-	biggest_index = find_biggest_position(data->stack_a->list);
-	while (last->index != size)
-	{
-		if (biggest_index < (size / 2))
-			rotate_a(data->stack_a);
-		else
-			reverse_rotate_a(data->stack_a);
-		last = ft_last(data->stack_a->list);
-	}
-	set_positions(data->stack_a->list);
-	while (data->stack_a->list->index != 1)
-	{
-		if (biggest_index < size / 2)
-			rotate_a(data->stack_a);
-		else
-			reverse_rotate_a(data->stack_a);
-	}
-	set_positions(data->stack_a->list);
-	if (is_sorted(data->stack_a->list))
-		ft_printf("Yes!\n");
-	else
-		ft_printf("No!\n");
+	if (!is_sorted(data->stack_a->list))
+		adjust_stack_a(data->stack_a);
 }
