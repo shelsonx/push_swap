@@ -101,13 +101,6 @@ void	set_target(t_stack *stack, t_node *element);
 void	set_targets_pos(t_stack *stack_a, t_stack *stack_b);
 void	set_costs(t_data *data);
 
-//TEST sort large pull
-void	set_mid_value_stack_b(t_data *data);
-void	pull_after_mid(t_data *data);
-void	pull_before_mid(t_data *data);
-void	skip_smallest_mid(t_data *data);
-void	skip_equals_mid_stack_b(t_data *data);
-
 //sort large
 void	sort_large(t_data *data);
 
