@@ -98,6 +98,10 @@ t_node	*get_cheaper(t_node *list);
 
 //sort large
 void	sort_large(t_data *data);
+void	put_smallests_to_b(t_data *data);
+
+//sort large utils
+void	run_actions(t_data *data, t_node *node_cheaper);
 
 //validate
 int		is_sorted(t_node *list);
@@ -105,5 +109,8 @@ int		contains_duplicate(int *arr, int size);
 
 //quick sort
 void	quick_sort(int *arr, int low, int high);
+
+//adjust stack
+void	adjust_stack_a(t_stack *stack_a);
 
 #endif
