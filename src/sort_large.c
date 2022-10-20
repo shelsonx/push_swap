@@ -6,13 +6,13 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/20 15:47:22 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:49:23 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	put_smallests_to_b(t_data *data)
+static void	put_smallests_to_b(t_data *data)
 {
 	int		mid;
 	int		size;

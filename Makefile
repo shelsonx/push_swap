@@ -1,7 +1,7 @@
 SRCS_FILES			= 	linked_list_funcs.c init.c swap_operations.c push_operations.c  \
 						rotate_up_operations.c reverse_rotate_operations.c exit.c push_swap_utils.c \
 						sort_small.c validate.c quick_sort.c sort_large.c sort_large_utils.c positions.c \
-						adjust_stack.c costs.c
+						adjust_stack.c costs.c main.c
 
 SRCS_FILES_BONUS	= 	# need to implement
 
@@ -10,7 +10,6 @@ SRCS_DIR			= src
 SRCS_DIR_BONUS		= src_bonus
 
 SRCS				= $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
-SRCS				+= tests/test_sort.c
 
 SRCS_BONUS			= $(addprefix $(SRCS_DIR_BONUS)/, $(SRCS_FILES_BONUS))
 
