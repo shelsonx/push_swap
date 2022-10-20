@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/20 15:58:48 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 16:35:08 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	run_actions(t_data *data);
 
 //validate
 int		is_sorted(t_node *list);
-int		contains_duplicate(int *arr, int size);
+int		validate(t_data *data);
 
 //quick sort
 void	quick_sort(int *arr, int low, int high);
