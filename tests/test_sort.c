@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:28:34 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/17 13:05:59 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 14:30:39 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 		sort_three(&data);
 	else if (size > 3)
 		sort_large(&data);
-	show_stacks(&data);
+	//show_stacks(&data);
 	free(arr);
 	free_stacks(&data);
 }

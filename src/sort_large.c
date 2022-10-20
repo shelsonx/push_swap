@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 08:32:05 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/19 02:23:18 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 05:40:13 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	put_smallests_to_b(t_data *data)
 	while (--size >= 3)
 		push_b(data);
 }
-
-
 
 void	sort_large(t_data *data)
 {

@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:52 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/18 19:12:56 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 14:26:22 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,17 @@
 static void	reverse_rotate(t_stack *stack)
 {
 	t_node	*current;
-	t_node	*tail;
+	t_node	*last;
 	int		size;
 
 	size = ft_size(stack->list);
 	current = stack->list;
 	while (--size > 1)
 		current = current->next;
-	tail = current->next;
+	last = ft_last(stack->list);
+	last->next = stack->list;
+	stack->list = last;
 	current->next = NULL;
-	ft_add_front(&stack->list,
-		ft_new(tail->value, tail->index));
-	free(tail);
 }
 
 void	reverse_rotate_a(t_stack *stack_a)
