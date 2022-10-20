@@ -1,72 +1,44 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort_large_utils.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 21:42:36 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/19 01:56:56 by sjhony-x         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 
 #include "push_swap.h"
 
-void	set_target(t_stack *stack, t_node *element)
+static void	rotate_stacks(t_data *data, t_node *node_cheaper)
 {
-	t_node	*current;
-	int biggest;
-
-	biggest = find_biggest_index(stack->list);
-	current = stack->list;
-	while (current)
+	while (node_cheaper->cost_a > 0 && node_cheaper->cost_b > 0)
 	{
-		if (element->index < current->index && current->index <= biggest)
+		rotate_all(data->stack_a, data->stack_b);
+		node_cheaper->cost_a--;
+		node_cheaper->cost_b--;
+	}
+	while (node_cheaper->cost_a < 0 && node_cheaper->cost_b < 0)
+	{
+		reverse_rotate_all(data->stack_a, data->stack_b);
+		node_cheaper->cost_a++;
+		node_cheaper->cost_b++;
+	}
+}
+
+static void	rotate_stack(int *cost, t_stack *stack, 
+		void(*r)(t_stack *), void(*rr)(t_stack *))
+{
+	while (*cost)
+	{
+		if (*cost > 0)
 		{
-			element->target_pos = current->position;
-			biggest = current->index;
+			r(stack);
+			(*cost)--;
 		}
-		current = current->next;
-	}
-	if (element->index > biggest)
-		element->target_pos = find_smallest_position(stack->list);
-}
-
-void	set_targets_pos(t_stack *stack_a, t_stack *stack_b)
-{
-	t_node	*current;
-
-	current = stack_b->list;
-	while (current)
-	{
-		set_target(stack_a, current);
-		current = current->next;
+		else
+		{
+			rr(stack);
+			(*cost)++;
+		}
 	}
 }
 
-int	get_cost(int position, int size)
+void	run_actions(t_data *data, t_node *node_cheaper)
 {
-	int mid;
-
-	mid =  size / 2;
-	if (position > mid)
-		return (position - size);
-	return (position);
-}
-
-void	set_costs(t_data *data)
-{
-	int size_a;
-	int size_b;
-	t_node *current;
-
-	size_a = ft_size(data->stack_a->list);
-	size_b = ft_size(data->stack_b->list);
-	current = data->stack_b->list;
-	while (current)
-	{
-		current->cost_a = get_cost(current->target_pos, size_a);
-		current->cost_b = get_cost(current->position, size_b);
-		current = current->next;
-	}
+	rotate_stacks(data, node_cheaper);
+	rotate_stack(&node_cheaper->cost_a, data->stack_a, rotate_a, reverse_rotate_a);
+	rotate_stack(&node_cheaper->cost_b, data->stack_b, rotate_b, reverse_rotate_b);
 }

@@ -54,8 +54,6 @@ t_node	*ft_new(int value, int index);
 //init data
 void	init(int argc, char **argv, t_data *data);
 void	init_stack_b(t_data *data);
-void	set_indexes(t_node *list);
-void	set_positions(t_node *list);
 
 //swap operations
 void	swap_sa(t_data *data);
@@ -88,28 +86,22 @@ void	fill_array(t_node *list, int *arr, int size);
 //sort small
 void	sort_two(t_data *data);
 void	sort_three(t_data *data);
-void	sort_four(t_data *data);
-void	sort_five(t_data *data);
 
-//sort large utils
-void	set_mid_value(t_data *data);
-void	push_after_mid(t_data *data);
-void	push_before_mid(t_data *data);
-void	skip_bigger_mid(t_data *data);
-void	skip_equals_mid(t_data *data);
-void	set_target(t_stack *stack, t_node *element);
+//positions
 void	set_targets_pos(t_stack *stack_a, t_stack *stack_b);
-void	set_costs(t_data *data);
+void	set_indexes(t_node *list);
+void	set_positions(t_node *list);
 
-//TEST sort large pull
-void	set_mid_value_stack_b(t_data *data);
-void	pull_after_mid(t_data *data);
-void	pull_before_mid(t_data *data);
-void	skip_smallest_mid(t_data *data);
-void	skip_equals_mid_stack_b(t_data *data);
+//costs
+void	set_costs(t_data *data);
+t_node	*get_cheaper(t_node *list);
 
 //sort large
 void	sort_large(t_data *data);
+void	put_smallests_to_b(t_data *data);
+
+//sort large utils
+void	run_actions(t_data *data, t_node *node_cheaper);
 
 //validate
 int		is_sorted(t_node *list);
@@ -117,5 +109,8 @@ int		contains_duplicate(int *arr, int size);
 
 //quick sort
 void	quick_sort(int *arr, int low, int high);
+
+//adjust stack
+void	adjust_stack_a(t_stack *stack_a);
 
 #endif

@@ -83,5 +83,6 @@ char	*ft_utoa(unsigned int n);
 //MORE
 int		ft_len_rows_tab(char **tab);
 void	ft_free_tab(char **tab);
+int 	ft_abs(int value);
 
 #endif
