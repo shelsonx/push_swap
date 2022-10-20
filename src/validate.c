@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 00:28:23 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/20 22:30:30 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:32:00 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	validate(t_data *data)
 	t_node	*list;
 
 	list = data->stack_a->list; 
-	if (is_sorted(list) || contains_duplicate(list))
+	if (contains_duplicate(list))
 		return (FALSE);
 	return (TRUE);
 }

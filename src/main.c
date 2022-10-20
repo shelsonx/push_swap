@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:28:34 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/20 23:07:26 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:36:05 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	main(int argc, char **argv)
 	t_data data;
 	int size;
 
-	if (argc == 1)
-		return (1);
 	init(argc, argv, &data);
+	if (argc == 1 || is_sorted(data.stack_a->list))
+		return (1);
 	if (validate(&data) && argc > 2)
 	{
 		size = ft_size(data.stack_a->list);
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_putstr_fd("Error!\n", 2);
+		ft_putstr_fd("Error\n", 2);
 		free_stacks(&data);
 		exit(1);
 	}
