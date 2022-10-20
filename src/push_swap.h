@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:14:43 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/18 20:47:23 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:02:05 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	sort_large(t_data *data);
 void	put_smallests_to_b(t_data *data);
 
 //sort large utils
-void	run_actions(t_data *data, t_node *node_cheaper);
+void	run_actions(t_data *data);
 
 //validate
 int		is_sorted(t_node *list);

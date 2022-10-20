@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 03:56:47 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/20 03:56:49 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 14:48:44 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ t_node	*get_cheaper(t_node *list)
 
 static int	get_cost(int position, int size)
 {
-	int mid;
+	int	mid;
 
-	mid =  size / 2;
+	mid = size / 2;
 	if (position > mid)
 		return (position - size);
 	return (position);
@@ -45,9 +45,9 @@ static int	get_cost(int position, int size)
 
 void	set_costs(t_data *data)
 {
-	int size_a;
-	int size_b;
-	t_node *current;
+	int		size_a;
+	int		size_b;
+	t_node	*current;
 
 	size_a = ft_size(data->stack_a->list);
 	size_b = ft_size(data->stack_b->list);

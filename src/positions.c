@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 21:42:36 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/20 03:56:08 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 14:49:30 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	set_target(t_stack *stack, t_node *element)
 {
 	t_node	*current;
-	int biggest;
+	int		biggest;
 
 	biggest = find_biggest_index(stack->list);
 	current = stack->list;

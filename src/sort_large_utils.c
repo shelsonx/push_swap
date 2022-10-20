@@ -6,10 +6,9 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 03:57:08 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/20 03:57:10 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:01:49 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -29,8 +28,8 @@ static void	rotate_stacks(t_data *data, t_node *node_cheaper)
 	}
 }
 
-static void	rotate_stack(int *cost, t_stack *stack, 
-		void(*r)(t_stack *), void(*rr)(t_stack *))
+static void	rotate_stack(int *cost, t_stack *stack,
+	void (*r)(t_stack *), void (*rr)(t_stack *))
 {
 	while (*cost)
 	{
@@ -47,9 +46,14 @@ static void	rotate_stack(int *cost, t_stack *stack,
 	}
 }
 
-void	run_actions(t_data *data, t_node *node_cheaper)
+void	run_actions(t_data *data)
 {
+	t_node	*node_cheaper;
+
+	node_cheaper = get_cheaper(data->stack_b->list);
 	rotate_stacks(data, node_cheaper);
-	rotate_stack(&node_cheaper->cost_a, data->stack_a, rotate_a, reverse_rotate_a);
-	rotate_stack(&node_cheaper->cost_b, data->stack_b, rotate_b, reverse_rotate_b);
+	rotate_stack(&node_cheaper->cost_a, data->stack_a,
+		rotate_a, reverse_rotate_a);
+	rotate_stack(&node_cheaper->cost_b, data->stack_b,
+		rotate_b, reverse_rotate_b);
 }
