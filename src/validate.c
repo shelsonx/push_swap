@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 00:28:23 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/20 23:32:00 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/21 04:54:19 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_sorted(t_node *list)
 
 static int	contains_duplicate(t_node *list)
 {
-	int size;
+	int	size;
 	int	*arr;
 	int	i;
 
@@ -52,12 +52,39 @@ static int	contains_duplicate(t_node *list)
 	return (FALSE);
 }
 
+static char	*skip_zero(char *str)
+{
+	while (*str && str[0] == '0' && ft_isdigit(str[1]))
+		str++;
+	return (str);
+}
+
+static int	is_number(t_data *data)
+{
+	char	*str;
+	char	*arg;
+	int		i;
+
+	i = 0;
+	while (i++ < data->argc -1)
+	{
+		str = ft_itoa(ft_atoi(data->argv[i]));
+		arg = skip_zero(data->argv[i]);
+		if (ft_strncmp(arg, str, ft_strlen(data->argv[i])) != 0)
+		{
+			free(str);
+			return (FALSE);
+		}
+		free(str);
+	}
+	return (TRUE);
+}
+
 int	validate(t_data *data)
 {
-	t_node	*list;
-
-	list = data->stack_a->list; 
-	if (contains_duplicate(list))
+	if (data->argc == 1 || is_sorted(data->stack_a->list))
+		exit(1);
+	if (contains_duplicate(data->stack_a->list) || !is_number(data))
 		return (FALSE);
 	return (TRUE);
 }
