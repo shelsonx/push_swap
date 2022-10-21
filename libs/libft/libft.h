@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:32:44 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/06 12:02:40 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/21 04:58:32 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ char	*ft_utoa(unsigned int n);
 //MORE
 int		ft_len_rows_tab(char **tab);
 void	ft_free_tab(char **tab);
-int 	ft_abs(int value);
+int		ft_abs(int value);
 
 #endif
