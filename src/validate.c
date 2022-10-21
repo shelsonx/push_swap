@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 00:28:23 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/21 04:54:19 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/21 17:48:31 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,16 @@ static int	is_number(t_data *data)
 
 int	validate(t_data *data)
 {
-	if (data->argc == 1 || is_sorted(data->stack_a->list))
-		exit(1);
 	if (contains_duplicate(data->stack_a->list) || !is_number(data))
+	{
+		ft_putstr_fd("Error\n", STDERR_FILENO);
+		free_stacks(data);
 		return (FALSE);
+	}
+	else if (data->argc == 1 || is_sorted(data->stack_a->list))
+	{
+		free_stacks(data);
+		exit(1);
+	}
 	return (TRUE);
 }
