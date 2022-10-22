@@ -6,7 +6,7 @@ SRCS_FILES			= 	linked_list_funcs.c init.c swap_operations.c push_operations.c  
 SRCS_FILES_BONUS	= 	linked_list_funcs.c init.c swap_operations.c push_operations.c  \
 						rotate_up_operations.c reverse_rotate_operations.c exit.c push_swap_utils.c \
 						sort_small.c validate.c quick_sort.c sort_large.c sort_large_utils.c positions.c \
-						adjust_stack.c costs.c main_bonus.c
+						adjust_stack.c costs.c checker.c
 
 SRCS_DIR			= src
 
@@ -38,7 +38,7 @@ bonus:				$(NAME_BONUS)
 $(NAME):			$(LIBFT) $(OBJS)
 					$(CC)  $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-$(NAME_BONUS):		$(LIBFT) $(OBJS_BONUS)
+$(NAME_BONUS):		$(NAME) $(LIBFT) $(OBJS_BONUS)
 					$(CC)  $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o $(NAME_BONUS)
 
 $(LIBFT):			
