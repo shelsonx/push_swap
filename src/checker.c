@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:31:14 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/22 22:34:30 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/23 00:41:34 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	run_command(t_data *data, char *command)
 {
-	close(STDOUT_FILENO);
 	if ((ft_strncmp(command, "pa", 2) == 0) && (ft_strlen(command) == 2))
 		push_a(data);
 	else if ((ft_strncmp(command, "pb", 2) == 0) && (ft_strlen(command) == 2))
@@ -49,6 +48,7 @@ static void	sorting(t_data *data)
 	line = ft_get_next_line(STDIN_FILENO);
 	while (line)
 	{
+		close(STDOUT_FILENO);
 		command = ft_substr(line, 0, ft_strlen(line) - 1);
 		run_command(data, command);
 		free(line);
