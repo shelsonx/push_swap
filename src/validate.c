@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 00:28:23 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/23 06:41:07 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/23 08:36:58 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ static int	is_number(t_data *data)
 	{
 		while (*data->argv[i] == '+')
 			data->argv[i]++;
+		if (*data->argv[i] == 0)
+			return (FALSE);
 		str = ft_itoa(ft_atoi(data->argv[i]));
 		arg = skip_zero(data->argv[i]);
 		if (ft_strncmp(arg, str, ft_strlen(data->argv[i])) != 0)
