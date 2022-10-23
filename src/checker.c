@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:31:14 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/23 20:02:46 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:54:25 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,27 @@ static int	ft_strcmp(char *s1, char *s2)
 
 static void	run_command(t_data *data, char *command)
 {
-	if ((ft_strcmp(command, "pa") == 0))
+	if ((ft_strcmp(command, "pa\n") == 0))
 		push_a(data);
-	else if ((ft_strcmp(command, "pb") == 0))
+	else if ((ft_strcmp(command, "pb\n") == 0))
 		push_b(data);
-	else if ((ft_strcmp(command, "sa") == 0))
+	else if ((ft_strcmp(command, "sa\n") == 0))
 		swap_sa(data);
-	else if ((ft_strcmp(command, "sb") == 0))
+	else if ((ft_strcmp(command, "sb\n") == 0))
 		swap_sb(data);
-	else if ((ft_strcmp(command, "ss") == 0))
+	else if ((ft_strcmp(command, "ss\n") == 0))
 		swap_ss(data);
-	else if ((ft_strcmp(command, "ra") == 0))
+	else if ((ft_strcmp(command, "ra\n") == 0))
 		rotate_a(data->stack_a);
-	else if ((ft_strcmp(command, "rb") == 0))
+	else if ((ft_strcmp(command, "rb\n") == 0))
 		rotate_b(data->stack_b);
-	else if ((ft_strcmp(command, "rr") == 0))
+	else if ((ft_strcmp(command, "rr\n") == 0))
 		rotate_all(data->stack_a, data->stack_b);
-	else if ((ft_strcmp(command, "rra") == 0))
+	else if ((ft_strcmp(command, "rra\n") == 0))
 		reverse_rotate_a(data->stack_a);
-	else if ((ft_strcmp(command, "rrb") == 0))
+	else if ((ft_strcmp(command, "rrb\n") == 0))
 		reverse_rotate_b(data->stack_b);
-	else if ((ft_strcmp(command, "rrr") == 0))
+	else if ((ft_strcmp(command, "rrr\n") == 0))
 		reverse_rotate_all(data->stack_a, data->stack_b);
 	else
 		ft_putstr_fd("Error\n", STDERR_FILENO);
@@ -54,18 +54,15 @@ static void	run_command(t_data *data, char *command)
 
 static void	sorting(t_data *data)
 {
-	char	*command;
 	char	*line;
 
 	line = ft_get_next_line(STDIN_FILENO);
 	while (line)
 	{
-		close(STDOUT_FILENO);
-		command = ft_substr(line, 0, ft_strlen(line) - 1);
-		run_command(data, command);
+		ft_printf("->%s", line);
+		run_command(data, line);
 		free(line);
 		line = ft_get_next_line(STDIN_FILENO);
-		free(command);
 	}
 	if (is_sorted(data->stack_a->list) && (ft_size(data->stack_b->list) == 0))
 	{
