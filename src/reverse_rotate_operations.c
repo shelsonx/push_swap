@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:52 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/23 06:47:17 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:59:00 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	reverse_rotate_a(t_stack *stack_a)
 	if (stack_a == NULL)
 		return ;
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
+	ft_putendl_fd("rra", STDOUT_FILENO);
 }
 
 void	reverse_rotate_b(t_stack *stack_b)
@@ -43,7 +43,7 @@ void	reverse_rotate_b(t_stack *stack_b)
 	if (stack_b == NULL)
 		return ;
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	ft_putendl_fd("rrb", STDOUT_FILENO);
 }
 
 void	reverse_rotate_all(t_stack *stack_a, t_stack *stack_b)
@@ -53,5 +53,5 @@ void	reverse_rotate_all(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a != NULL)
 		reverse_rotate(stack_b);
 	if (stack_a != NULL || stack_b != NULL)
-		ft_printf("rrr\n");
+		ft_putendl_fd("rrr", STDOUT_FILENO);
 }

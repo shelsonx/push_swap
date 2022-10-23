@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:34:27 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/23 06:45:42 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:59:51 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	swap_sa(t_data *data)
 	if (data->stack_a == NULL)
 		return ;
 	swap(data->stack_a->list);
-	ft_printf("sa\n");
+	ft_putendl_fd("sa", STDOUT_FILENO);
 }
 
 void	swap_sb(t_data *data)
@@ -40,7 +40,7 @@ void	swap_sb(t_data *data)
 	if (data->stack_b == NULL)
 		return ;
 	swap(data->stack_b->list);
-	ft_printf("sb\n");
+	ft_putendl_fd("sb", STDOUT_FILENO);
 }
 
 void	swap_ss(t_data *data)
@@ -50,5 +50,5 @@ void	swap_ss(t_data *data)
 	if (data->stack_b != NULL)
 		swap(data->stack_b->list);
 	if (data->stack_a != NULL || data->stack_a != NULL)
-		ft_printf("ss\n");
+		ft_putendl_fd("ss", STDOUT_FILENO);
 }
