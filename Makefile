@@ -73,7 +73,6 @@ test100:			$(NAME)
 					$(eval ARG = $(shell shuf -i 0-1000 -n 100))
 					./push_swap $(ARG) | ./checker_linux $(ARG)
 					./push_swap $(ARG) | wc -l
-					@echo -n "Total operations: "
 
 test500:			$(NAME)
 					$(eval ARG = $(shell shuf -i 0-2000 -n 500))

@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:52 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/15 16:01:48 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/23 06:46:17 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	rotate(t_stack *stack)
 	int		head_index;
 	t_node	*tmp;
 
+	if (ft_size(stack->list) < 2)
+		return ;
 	head_value = stack->list->value;
 	head_index = stack->list->index;
 	tmp = stack->list;

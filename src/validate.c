@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 00:28:23 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/22 23:26:32 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/23 06:41:07 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	is_sorted(t_node *list)
 {
 	t_node	*current;
 
+	if (!list)
+		return (FALSE);
 	current = list;
 	while (current->next)
 	{

@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:31:14 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/23 00:41:34 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/23 06:58:15 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	sorting(t_data *data)
 		line = ft_get_next_line(STDIN_FILENO);
 		free(command);
 	}
-	if (is_sorted(data->stack_a->list))
+	if (is_sorted(data->stack_a->list) && (ft_size(data->stack_b->list) == 0))
 	{
 		free_stacks(data);
 		ft_putstr_fd("OK\n", STDERR_FILENO);
