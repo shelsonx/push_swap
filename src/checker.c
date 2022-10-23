@@ -6,35 +6,47 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:31:14 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/23 06:58:15 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/23 20:00:14 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
+}
+
 static void	run_command(t_data *data, char *command)
 {
-	if ((ft_strncmp(command, "pa", 2) == 0) && (ft_strlen(command) == 2))
+	if ((ft_strcmp(command, "pa") == 0))
 		push_a(data);
-	else if ((ft_strncmp(command, "pb", 2) == 0) && (ft_strlen(command) == 2))
+	else if ((ft_strcmp(command, "pb") == 0))
 		push_b(data);
-	else if ((ft_strncmp(command, "sa", 2) == 0) && (ft_strlen(command) == 2))
+	else if ((ft_strcmp(command, "sa") == 0))
 		swap_sa(data);
-	else if ((ft_strncmp(command, "sb", 2) == 0) && (ft_strlen(command) == 2))
+	else if ((ft_strcmp(command, "sb") == 0))
 		swap_sb(data);
-	else if ((ft_strncmp(command, "ss", 2) == 0) && (ft_strlen(command) == 2))
+	else if ((ft_strcmp(command, "ss") == 0))
 		swap_ss(data);
-	else if ((ft_strncmp(command, "ra", 2) == 0) && (ft_strlen(command) == 2))
+	else if ((ft_strcmp(command, "ra") == 0))
 		rotate_a(data->stack_a);
-	else if ((ft_strncmp(command, "rb", 2) == 0) && (ft_strlen(command) == 2))
+	else if ((ft_strcmp(command, "rb") == 0))
 		rotate_b(data->stack_b);
-	else if ((ft_strncmp(command, "rr", 2) == 0) && (ft_strlen(command) == 2))
+	else if ((ft_strcmp(command, "rr") == 0))
 		rotate_all(data->stack_a, data->stack_b);
-	else if ((ft_strncmp(command, "rra", 3) == 0) && (ft_strlen(command) == 3))
+	else if ((ft_strcmp(command, "rra") == 0))
 		reverse_rotate_a(data->stack_a);
-	else if ((ft_strncmp(command, "rrb", 3) == 0) && (ft_strlen(command) == 3))
+	else if ((ft_strcmp(command, "rrb") == 0))
 		reverse_rotate_b(data->stack_b);
-	else if ((ft_strncmp(command, "rrr", 3) == 0) && (ft_strlen(command) == 3))
+	else if ((ft_strcmp(command, "rrr") == 0))
 		reverse_rotate_all(data->stack_a, data->stack_b);
 	else
 		ft_putstr_fd("Error\n", STDERR_FILENO);
