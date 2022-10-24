@@ -6,11 +6,11 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:31:14 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/24 06:51:23 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/24 19:22:07 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static int	ft_strcmp(char *s1, char *s2)
 {
@@ -29,7 +29,6 @@ void	steps(t_data *data)
 	set_positions(data->stack_a->list);
 	set_positions(data->stack_b->list);
 	set_targets_pos(data->stack_a, data->stack_b);
-	set_costs(data);
 }
 
 static void	run_command(t_data *data, char *command)
@@ -65,9 +64,8 @@ static void	sorting(t_data *data)
 {
 	char	*line;
 
-	close(STDOUT_FILENO);
 	line = ft_get_next_line(STDIN_FILENO);
-	while (line && *line != '\n')
+	while (line)
 	{
 		run_command(data, line);
 		free(line);
@@ -76,10 +74,10 @@ static void	sorting(t_data *data)
 	if (is_sorted(data->stack_a->list) && (ft_size(data->stack_b->list) == 0))
 	{
 		free_stacks(data);
-		ft_putstr_fd("OK\n", STDERR_FILENO);
+		ft_putstr_fd("OK\n", STDOUT_FILENO);
 		exit(0);
 	}
-	ft_putstr_fd("KO\n", STDERR_FILENO);
+	ft_putstr_fd("KO\n", STDOUT_FILENO);
 	free_stacks(data);
 	exit(-1);
 }

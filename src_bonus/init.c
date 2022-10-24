@@ -6,11 +6,11 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:36:45 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/24 17:10:16 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:35:31 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static void	init_stacks(t_data *data)
 {
