@@ -6,7 +6,7 @@
 /*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:31:14 by sjhony-x          #+#    #+#             */
-/*   Updated: 2022/10/23 23:54:25 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2022/10/24 06:51:23 by sjhony-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,17 @@ static int	ft_strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 
+void	steps(t_data *data)
+{
+	set_positions(data->stack_a->list);
+	set_positions(data->stack_b->list);
+	set_targets_pos(data->stack_a, data->stack_b);
+	set_costs(data);
+}
+
 static void	run_command(t_data *data, char *command)
 {
+	steps(data);
 	if ((ft_strcmp(command, "pa\n") == 0))
 		push_a(data);
 	else if ((ft_strcmp(command, "pb\n") == 0))
@@ -56,10 +65,10 @@ static void	sorting(t_data *data)
 {
 	char	*line;
 
+	close(STDOUT_FILENO);
 	line = ft_get_next_line(STDIN_FILENO);
-	while (line)
+	while (line && *line != '\n')
 	{
-		ft_printf("->%s", line);
 		run_command(data, line);
 		free(line);
 		line = ft_get_next_line(STDIN_FILENO);
